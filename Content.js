@@ -15,7 +15,7 @@ const generateSTYLES = () => {
     margin: 100px auto;
   }
   ._404 {
-    font-size: 220px;
+    font-size: 110px;
     position: relative;
     display: inline-block;
     z-index: 2;
@@ -79,44 +79,13 @@ const generateSTYLES = () => {
   .cloud {
     width: 350px;
     height: 350px;
-    background: url('icon.png') no-repeat center center, #f0f0f0;
+    background: url('https://i.fbcd.co/products/original/1-570fc77c21444b0703b64690d671cd8c5b4179695db745211b5f161fb60370b7.jpg') no-repeat center center, #f0f0f0;
     background-size: cover;
     border-radius: 0;
-  
     position: absolute;
     margin: 120px auto 20px;
     z-index: -1;
     transition: ease 1s;
-  }
-  
-  .cloud:after,
-  .cloud:before {
-    content: "";
-    position: absolute;
-    background: #fff;
-    z-index: -1;
-  }
-  
-  .cloud:after {
-    width: 100px;
-    height: 100px;
-    top: -50px;
-    left: 50px;
-  
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-  }
-  
-  .cloud:before {
-    width: 180px;
-    height: 180px;
-    top: -90px;
-    right: 50px;
-  
-    border-radius: 200px;
-    -webkit-border-radius: 200px;
-    -moz-border-radius: 200px;
   }
   
   .x1 {
@@ -235,10 +204,8 @@ const generateHTML = (pageName) => {
       <div class="cloud x5"></div>
   </div>
   <div class='c'>
-      <div class='_404'>404</div>
-      <hr>
-      <div class='_1'>GET BACK TO WORK</div>
-      <div class='_2'>STUDYING > ${pageName}</div>
+      <div class='_404'>KITTY IS MAD</div>
+      <div class='_1'>Your timer has reset</div>
   </div>
    `;
 };
