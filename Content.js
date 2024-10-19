@@ -221,6 +221,7 @@ chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
 
 switch (window.location.hostname) {
   case "www.youtube.com":
+      chrome.runtime.sendMessage({ type: "SHOW_NOTIFICATION" });
       chrome.storage.local.get(["isRunning"], function (result) {
         if (result.isRunning === true) {
           document.head.innerHTML = generateSTYLES();
