@@ -368,3 +368,10 @@ switch (window.location.hostname) {
     });
     break;
 }
+
+chrome.storage.local.get(["timer"], function (result) {
+  console.log(result.timer);
+  if (result.timer>=15) {
+    alert("YOU DID IT!");
+  }
+});
