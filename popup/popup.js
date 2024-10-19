@@ -1,5 +1,6 @@
 let tasks = [];
 
+
 function updateTimer() {
   chrome.storage.local.get(["timer", "timeOption"], (res) => {
     const time = document.getElementById("time");
@@ -107,3 +108,23 @@ function renderTasks() {
     renderTask(taskNumber);
   });
 }
+const incrementButton = document.getElementById("increment");
+incrementButton.addEventListener("click", () => {
+  chrome.storage.local.get(["timeOption"], (res) => {
+    let newTimeOption = res.timeOption + 5;
+    chrome.storage.local.set({ timeOption: newTimeOption });
+    document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+  });
+});
+const decrementButton = document.getElementById("decrement");
+decrementButton.addEventListener("click", () => {
+  chrome.storage.local.get(["timeOption"], (res) => {
+    let newTimeOption = res.timeOption - 6;
+    if (newTimeOption < 6) {
+      alert("Time cannot be less than 6 minutes!");
+      return;
+    }
+    chrome.storage.local.set({ timeOption: newTimeOption });
+    document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+  });
+});
