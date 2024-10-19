@@ -251,29 +251,128 @@ const generateHTML = (pageName) => {
    `;
 };
 
+chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
+  
+  chrome.storage.local.set({
+    timer: "timer" in res ? res.timer : 0,
+    timeOption: "timeOption" in res ? res.timeOption : 25,
+    isRunning: "isRunning" in res ? res.isRunning : false,
+  });
+});
+
 switch (window.location.hostname) {
   case "www.youtube.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("YOUTUBE");
-    break;
+      chrome.storage.local.get(["isRunning"], function (result) {
+        if (result.isRunning === true) {
+          document.head.innerHTML = generateSTYLES();
+          document.body.innerHTML = generateHTML("YOUTUBE");
+          
+          // Set the new values in storage
+          chrome.storage.local.set(
+            {
+              timer: 0,
+              isRunning: false,
+            },
+            () => {
+              startTimerButton.textContent = "Start Timer";
+            }
+          );
+        }
+      });
+  break;
   case "www.facebook.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("FACEBOOK");
+    chrome.storage.local.get(["isRunning"], function (result) {
+      if (result.isRunning === true) {
+        document.head.innerHTML = generateSTYLES();
+        document.body.innerHTML = generateHTML("FACEBOOK");
+        
+        // Set the new values in storage
+        chrome.storage.local.set(
+          {
+            timer: 0,
+            isRunning: false,
+          },
+          () => {
+            startTimerButton.textContent = "Start Timer";
+          }
+        );
+      }
+    });
     break;
   case "www.netflix.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("NETFLIX");
+    chrome.storage.local.get(["isRunning"], function (result) {
+      if (result.isRunning === true) {
+        document.head.innerHTML = generateSTYLES();
+        document.body.innerHTML = generateHTML("NETFLIX");
+        
+        // Set the new values in storage
+        chrome.storage.local.set(
+          {
+            timer: 0,
+            isRunning: false,
+          },
+          () => {
+            startTimerButton.textContent = "Start Timer";
+          }
+        );
+      }
+    });
     break;
   case "www.roblox.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("ROBLOX");
+    chrome.storage.local.get(["isRunning"], function (result) {
+      if (result.isRunning === true) {
+        document.head.innerHTML = generateSTYLES();
+        document.body.innerHTML = generateHTML("ROBLOX");
+        
+        // Set the new values in storage
+        chrome.storage.local.set(
+          {
+            timer: 0,
+            isRunning: false,
+          },
+          () => {
+            startTimerButton.textContent = "Start Timer";
+          }
+        );
+      }
+    });
     break;
   case "discord.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("DISCORD");
+    chrome.storage.local.get(["isRunning"], function (result) {
+      if (result.isRunning === true) {
+        document.head.innerHTML = generateSTYLES();
+        document.body.innerHTML = generateHTML("DISCORD");
+        
+        // Set the new values in storage
+        chrome.storage.local.set(
+          {
+            timer: 0,
+            isRunning: false,
+          },
+          () => {
+            startTimerButton.textContent = "Start Timer";
+          }
+        );
+      }
+    });
     break;
   case "www.spotify.com":
-    document.head.innerHTML = generateSTYLES();
-    document.body.innerHTML = generateHTML("SPOTIFY");
+    chrome.storage.local.get(["isRunning"], function (result) {
+      if (result.isRunning === true) {
+        document.head.innerHTML = generateSTYLES();
+        document.body.innerHTML = generateHTML("SPOTIFY");
+        
+        // Set the new values in storage
+        chrome.storage.local.set(
+          {
+            timer: 0,
+            isRunning: false,
+          },
+          () => {
+            startTimerButton.textContent = "Start Timer";
+          }
+        );
+      }
+    });
     break;
 }

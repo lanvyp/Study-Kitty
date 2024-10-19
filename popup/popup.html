@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="popup.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Settings</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        text-align: center;
+      }
+      #timerDisplay {
+        font-size: 24px;
+        margin: 20px;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      .button {
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+        width: 60px;
+        height: 60px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        transition: background-color 0.3s;
+      }
+      .button:hover {
+        background-color: #e0e0e0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Study Kitty</h1>
+    <img src="../icon.png" height="100px" />
+    <h1 id="time">00:00</h1>
+    <div id="button-container">
+      <button id="start-timer-button">Start Timer</button>
+      <button id="reset-timer-button">Reset Timer</button>
+      <button id="add-task-button">Add Task</button>
+    </div>
+    <div id="task-container"></div>
+
+    <h1>Set Timer</h1>
+  <div id="timerDisplay"></div>
+  <div class="button-container">
+    <button class="arrow-button" id="decrement">⬇️</button>
+    <span id="timeDisplay">25 minutes</span>  <!-- Shows the current timer -->
+    <button class="arrow-button" id="increment">⬆️</button>
+  </div>
+
+  </body>
+  <script src="./popup.js"></script>
+</html>
