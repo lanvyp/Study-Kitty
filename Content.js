@@ -78,18 +78,10 @@ const generateSTYLES = () => {
   
   .cloud {
     width: 350px;
-    height: 120px;
-  
-    background: #fff;
-    background: linear-gradient(top, #fff 100%);
-    background: -webkit-linear-gradient(top, #fff 100%);
-    background: -moz-linear-gradient(top, #fff 100%);
-    background: -ms-linear-gradient(top, #fff 100%);
-    background: -o-linear-gradient(top, #fff 100%);
-  
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
+    height: 350px;
+    background: url('icon.png') no-repeat center center, #f0f0f0;
+    background-size: cover;
+    border-radius: 0;
   
     position: absolute;
     margin: 120px auto 20px;

@@ -49,17 +49,19 @@ resetTimerButton.addEventListener("click", () => {
   );
 });
 
-chrome.storage.local.get(["isRunning"], function (result) {
-  if (result.isRunning === false) {
 const incrementButton = document.getElementById("increment");
 incrementButton.addEventListener("click", () => {
-  chrome.storage.local.get(["timeOption"], (res) => {
-    let newTimeOption = res.timeOption + 5;
-    chrome.storage.local.set({ timeOption: newTimeOption });
-    document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+  chrome.storage.local.get(["isRunning"], function (result) {
+    if (result.isRunning === false) {
+      chrome.storage.local.get(["timeOption"], (res) => {
+        let newTimeOption = res.timeOption + 5;
+        chrome.storage.local.set({ timeOption: newTimeOption }, () => {
+          document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+        });
+      });
+    }
   });
 });
-}});
 
 const decrementButton = document.getElementById("decrement");
 decrementButton.addEventListener("click", () => {
