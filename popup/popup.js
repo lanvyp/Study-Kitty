@@ -119,9 +119,9 @@ incrementButton.addEventListener("click", () => {
 const decrementButton = document.getElementById("decrement");
 decrementButton.addEventListener("click", () => {
   chrome.storage.local.get(["timeOption"], (res) => {
-    let newTimeOption = res.timeOption - 6;
-    if (newTimeOption < 6) {
-      alert("Time cannot be less than 6 minutes!");
+    let newTimeOption = res.timeOption - 5;
+    if (newTimeOption < 5) {
+      alert("Time cannot be less than 5 minutes!");
       return;
     }
     chrome.storage.local.set({ timeOption: newTimeOption });
