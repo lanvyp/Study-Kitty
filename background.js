@@ -10,10 +10,11 @@ chrome.alarms.onAlarm.addListener((alarm) => {
         let isRunning = true;
         console.log(timer);
         if (timer === 60 * res.timeOption) {
-          this.registration.showNotification("Pomodoro Timer is Up", {
-            body: `${res.timeOption} min has passed!`,
-            icon: "icon.png",
-          });
+          // this.registration.showNotification("Pomodoro Timer is Up", {
+          //    body: `${res.timeOption} min has passed!`,
+          //    icon: "icon.png",
+          // });
+
           timer = 0;
           isRunning = false;
         }

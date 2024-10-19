@@ -56,7 +56,7 @@ incrementButton.addEventListener("click", () => {
       chrome.storage.local.get(["timeOption"], (res) => {
         let newTimeOption = res.timeOption + 5;
         chrome.storage.local.set({ timeOption: newTimeOption }, () => {
-          document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+          //document.getElementById("timeDisplay").textContent; 
         });
       });
     }
@@ -73,8 +73,9 @@ decrementButton.addEventListener("click", () => {
         return;
       }
       chrome.storage.local.set({ timeOption: newTimeOption }, () => {
-        document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+        //document.getElementById("timeDisplay").textContent; 
       });
     }
   });
 });
+
