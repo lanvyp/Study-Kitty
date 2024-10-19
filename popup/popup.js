@@ -49,65 +49,8 @@ resetTimerButton.addEventListener("click", () => {
   );
 });
 
-const addTaskButton = document.getElementById("add-task-button");
-addTaskButton.addEventListener("click", () => addTask());
-
-chrome.storage.sync.get(["tasks"], (res) => {
-  tasks = res.tasks ? res.tasks : [];
-  renderTasks();
-});
-
-function saveTasks() {
-  chrome.storage.sync.set({
-    tasks,
-  });
-}
-
-function renderTask(taskNumber) {
-  const taskRow = document.createElement("div");
-
-  const taskName = document.createElement("input");
-  taskName.type = "text";
-  taskName.placeholder = "Enter the task name";
-  taskName.value = tasks[taskNumber];
-  taskName.addEventListener("change", () => {
-    tasks[taskNumber] = taskName.value;
-    saveTasks();
-  });
-
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "X";
-  deleteButton.addEventListener("click", () => {
-    deleteTask(taskNumber);
-  });
-
-  taskRow.appendChild(taskName);
-  taskRow.appendChild(deleteButton);
-
-  const taskContainer = document.getElementById("task-container");
-  taskContainer.appendChild(taskRow);
-}
-
-function addTask() {
-  const taskNumber = tasks.length;
-  tasks.push("");
-  renderTask(taskNumber);
-  saveTasks();
-}
-
-function deleteTask(taskNumber) {
-  tasks.splice(taskNumber, 1);
-  renderTasks();
-  saveTasks();
-}
-
-function renderTasks() {
-  const taskContainer = document.getElementById("task-container");
-  taskContainer.textContent = "";
-  tasks.forEach((taskText, taskNumber) => {
-    renderTask(taskNumber);
-  });
-}
+chrome.storage.local.get(["isRunning"], function (result) {
+  if (result.isRunning === false) {
 const incrementButton = document.getElementById("increment");
 incrementButton.addEventListener("click", () => {
   chrome.storage.local.get(["timeOption"], (res) => {
@@ -116,15 +59,20 @@ incrementButton.addEventListener("click", () => {
     document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
   });
 });
+}});
+
 const decrementButton = document.getElementById("decrement");
 decrementButton.addEventListener("click", () => {
-  chrome.storage.local.get(["timeOption"], (res) => {
-    let newTimeOption = res.timeOption - 5;
-    if (newTimeOption < 5) {
-      alert("Time cannot be less than 5 minutes!");
-      return;
+  chrome.storage.local.get(["timeOption", "isRunning"], (res) => {
+    if (res.isRunning === false) {  // Corrected res instead of result
+      let newTimeOption = res.timeOption - 5;
+      if (newTimeOption < 5) {
+        alert("Time cannot be less than 5 minutes!");
+        return;
+      }
+      chrome.storage.local.set({ timeOption: newTimeOption }, () => {
+        document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
+      });
     }
-    chrome.storage.local.set({ timeOption: newTimeOption });
-    document.getElementById("timeDisplay").textContent = `${newTimeOption} minutes`;
   });
 });
