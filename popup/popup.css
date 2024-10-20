@@ -1,7 +1,7 @@
 /* popup.css */
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Verdana, sans-serif;
   margin: 0;
   padding: 50px;
   width: 280px;
@@ -19,17 +19,18 @@ img {
 }
 
 button {
+  font-family: Verdana, sans-serif;
   margin: 0 auto;
   padding: 10px 10px;
-  background-color: #4caf50;
-  color: white;
+  background-color: #ffcccb;
+  color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #ff99cc;
 }
 
 div {
