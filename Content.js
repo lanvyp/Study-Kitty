@@ -221,27 +221,16 @@ chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
   });
 });
 
-switch (window.location.hostname) { 
-  case "www.youtube.com":
-      chrome.storage.local.get(["isRunning"], function (result) {
-        if (result.isRunning === true) {
-          document.head.innerHTML = generateSTYLES();
-          document.body.innerHTML = generateHTML("YOUTUBE");
-          
-          // Set the new values in storage
-          chrome.storage.local.set(
-            {
-              timer: 0,
-              isRunning: false,
-            },
-            () => {
-              startTimerButton.textContent = "Start Timer";
-            }
-          );
-        }
-      });
-  break;
-  case "www.facebook.com":
+//let blockedSites = ["www.youtube.com", "www.facebook.com", "www.netflix.com"];
+let addedBlockedSites = [];
+
+// Retrieve the blacklisted URLs from Chrome storage
+chrome.storage.local.get({ blacklistedUrls: [] }, (result) => {
+  const urlList = result.blacklistedUrls;
+  addedBlockedSites = urlList;
+
+  // Check if the current hostname is in the blocked sites or added blocked sites
+  if (addedBlockedSites.includes(window.location.hostname)) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
@@ -259,82 +248,31 @@ switch (window.location.hostname) {
         );
       }
     });
-    break;
-  case "www.netflix.com":
-    chrome.storage.local.get(["isRunning"], function (result) {
-      if (result.isRunning === true) {
-        document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("YOUTUBE");
-        
-        // Set the new values in storage
-        chrome.storage.local.set(
-          {
-            timer: 0,
-            isRunning: false,
-          },
-          () => {
-            startTimerButton.textContent = "Start Timer";
-          }
-        );
-      }
-    });
-    break;
-  case "www.roblox.com":
-    chrome.storage.local.get(["isRunning"], function (result) {
-      if (result.isRunning === true) {
-        document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("YOUTUBE");
-        
-        // Set the new values in storage
-        chrome.storage.local.set(
-          {
-            timer: 0,
-            isRunning: false,
-          },
-          () => {
-            startTimerButton.textContent = "Start Timer";
-          }
-        );
-      }
-    });
-    break;
-  case "discord.com":
-    chrome.storage.local.get(["isRunning"], function (result) {
-      if (result.isRunning === true) {
-        document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("YOUTUBE");
-        
-        // Set the new values in storage
-        chrome.storage.local.set(
-          {
-            timer: 0,
-            isRunning: false,
-          },
-          () => {
-            startTimerButton.textContent = "Start Timer";
-          }
-        );
-      }
-    });
-    break;
-  case "www.spotify.com":
-    chrome.storage.local.get(["isRunning"], function (result) {
-      if (result.isRunning === true) {
-        document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("YOUTUBE");
-        
-        // Set the new values in storage
-        chrome.storage.local.set(
-          {
-            timer: 0,
-            isRunning: false,
-          },
-          () => {
-            startTimerButton.textContent = "Start Timer";
-          }
-        );
-      }
-    });
-    break;
-}
+  }
+});
+
+// chrome.storage.local.get({ blacklistedUrls: [] }, (result) => {
+//   const urlList = result.blacklistedUrls;
+//   addedBlockedSites = urlList;
+// });
+
+// if (blockedSites.includes(window.location.hostname) || addedBlockedSites.includes(window.location.hostname)){
+//   chrome.storage.local.get(["isRunning"], function (result) {
+//     if (result.isRunning === true) {
+//       document.head.innerHTML = generateSTYLES();
+//       document.body.innerHTML = generateHTML("YOUTUBE");
+      
+//       // Set the new values in storage
+//       chrome.storage.local.set(
+//         {
+//           timer: 0,
+//           isRunning: false,
+//         },
+//         () => {
+//           startTimerButton.textContent = "Start Timer";
+//         }
+//       );
+//     }
+//   });
+// }
 
