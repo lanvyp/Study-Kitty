@@ -17,7 +17,8 @@
   "permissions": [
     "storage",
     "alarms",
-    "notifications"
+    "notifications",
+    "windows"
   ],
   "action": {
     "default_icon": {

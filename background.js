@@ -1,5 +1,5 @@
 
-chrome.alarms.create("pomodoroTimer", {
+chrome.alarms.create("kittyTimer", {
   periodInMinutes: 1 / 60,
 });
 
@@ -11,7 +11,7 @@ chrome.action.onClicked.addListener(() => {
 });
 
 chrome.alarms.onAlarm.addListener((alarm) => {
-  if (alarm.name === "pomodoroTimer") {
+  if (alarm.name === "kittyTimer") {
     chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
       if (res.isRunning) {
         let timer = res.timer + 1;
