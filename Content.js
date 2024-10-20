@@ -1,8 +1,8 @@
 const generateSTYLES = () => {
   return `<style>@import url(https://fonts.googleapis.com/css?family=opensans:500);
   body {
-    background: #33cc99;
-    color: #fff;
+    background: #ffcccb;
+    color: #ffffcc;
     font-family: "Open Sans", sans-serif;
     max-height: 700px;
     overflow: hidden;
@@ -243,7 +243,7 @@ switch (window.location.hostname) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("FACEBOOK");
+        document.body.innerHTML = generateHTML("YOUTUBE");
         
         // Set the new values in storage
         chrome.storage.local.set(
@@ -262,7 +262,7 @@ switch (window.location.hostname) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("NETFLIX");
+        document.body.innerHTML = generateHTML("YOUTUBE");
         
         // Set the new values in storage
         chrome.storage.local.set(
@@ -281,7 +281,7 @@ switch (window.location.hostname) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("ROBLOX");
+        document.body.innerHTML = generateHTML("YOUTUBE");
         
         // Set the new values in storage
         chrome.storage.local.set(
@@ -300,7 +300,7 @@ switch (window.location.hostname) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("DISCORD");
+        document.body.innerHTML = generateHTML("YOUTUBE");
         
         // Set the new values in storage
         chrome.storage.local.set(
@@ -319,7 +319,7 @@ switch (window.location.hostname) {
     chrome.storage.local.get(["isRunning"], function (result) {
       if (result.isRunning === true) {
         document.head.innerHTML = generateSTYLES();
-        document.body.innerHTML = generateHTML("SPOTIFY");
+        document.body.innerHTML = generateHTML("YOUTUBE");
         
         // Set the new values in storage
         chrome.storage.local.set(
