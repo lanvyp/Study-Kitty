@@ -79,7 +79,7 @@ const generateSTYLES = () => {
   .cloud {
     width: 350px;
     height: 350px;
-    background: url('chrome-extension://djfgdidghmfncgafmecagnggcocekndp/AngryKitty.jpg') no-repeat center center, #f0f0f0;
+    background: url('chrome-extension://djfgdidghmfncgafmecagnggcocekndp/file.png') no-repeat center center;
     background-size: cover;
     border-radius: 0;
     position: absolute;
