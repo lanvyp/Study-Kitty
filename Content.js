@@ -221,7 +221,7 @@ chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
   });
 });
 
-switch (window.location.hostname) {
+switch (window.location.hostname) { 
   case "www.youtube.com":
       chrome.storage.local.get(["isRunning"], function (result) {
         if (result.isRunning === true) {

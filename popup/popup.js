@@ -1,6 +1,5 @@
 let tasks = [];
 
-
 function updateTimer() {
   chrome.storage.local.get(["timer", "timeOption"], (res) => {
     const time = document.getElementById("time");
@@ -30,16 +29,6 @@ startTimerButton.addEventListener("click", () => {
         }
       );
     }
-    // chrome.storage.local.set(
-    //   {
-    //     isRunning: !res.isRunning,
-    //   }
-    //   // () => {
-    //   //   startTimerButton.textContent = !res.isRunning
-    //   //     ? "Pause Timer"
-    //   //     : "Start Timer";
-    //   // }
-    // );
   });
 });
 
@@ -85,4 +74,51 @@ decrementButton.addEventListener("click", () => {
     }
   });
 });
+
+function displayBlacklistedUrls() {
+  chrome.storage.local.get({ blacklistedUrls: [] }, (result) => {
+    const urlList = result.blacklistedUrls;
+    const listElement = document.getElementById("blacklistUrlsList");
+
+    // Clear existing list
+    listElement.innerHTML = '';
+
+    // Add each URL as a list item
+    urlList.forEach((url) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = url;
+      listElement.appendChild(listItem);
+    });
+  });
+}
+
+// Event listener for saving a URL
+document.getElementById("saveUrl").addEventListener("click", () => {
+  const url = document.getElementById("urlInput").value;
+
+  if (url) {
+    // Retrieve the existing list from storage
+    chrome.storage.local.get({ blacklistedUrls: [] }, (result) => {
+      const updatedUrls = result.blacklistedUrls;
+      updatedUrls.push(url);
+
+      // Save the updated list back to storage
+      chrome.storage.local.set({ blacklistedUrls: updatedUrls }, () => {
+        displayBlacklistedUrls(); // Update the displayed list
+      });
+    });
+  }
+});
+
+document.getElementById("clearButton").addEventListener("click", () => {
+  // Clear the blacklisted URLs from storage
+  chrome.storage.local.remove("blacklistedUrls", () => {
+      // Reload the list to reflect the cleared state
+      displayBlacklistedUrls();
+      console.log("All blacklisted URLs have been cleared.");
+  });
+});
+
+ // Display the blacklisted URLs when the popup loads
+ document.addEventListener("DOMContentLoaded", displayBlacklistedUrls);
 
