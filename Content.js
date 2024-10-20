@@ -79,7 +79,7 @@ const generateSTYLES = () => {
   .cloud {
     width: 350px;
     height: 350px;
-    background: url('https://i.fbcd.co/products/original/1-570fc77c21444b0703b64690d671cd8c5b4179695db745211b5f161fb60370b7.jpg') no-repeat center center, #f0f0f0;
+    background: url('chrome-extension://djfgdidghmfncgafmecagnggcocekndp/AngryKitty.jpg') no-repeat center center, #f0f0f0;
     background-size: cover;
     border-radius: 0;
     position: absolute;
@@ -211,7 +211,7 @@ const generateHTML = (pageName) => {
 };
 
 chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
-  
+  console.log("Created result.timer:" + result.timer);
   chrome.storage.local.set({
     timer: "timer" in res ? res.timer : 0,
     timeOption: "timeOption" in res ? res.timeOption : 25,
@@ -221,7 +221,6 @@ chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {
 
 switch (window.location.hostname) {
   case "www.youtube.com":
-      chrome.runtime.sendMessage({ type: "SHOW_NOTIFICATION" });
       chrome.storage.local.get(["isRunning"], function (result) {
         if (result.isRunning === true) {
           document.head.innerHTML = generateSTYLES();
@@ -337,9 +336,3 @@ switch (window.location.hostname) {
     break;
 }
 
-// chrome.storage.local.get(["timer"], function (result) {
-//   console.log(result.timer);
-//   if (result.timer>=15) {
-//     alert("YOU DID IT!");
-//   }
-// });

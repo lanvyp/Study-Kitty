@@ -40,5 +40,11 @@
       ]
     }
   ],
-  "options_page": "options/options.html"
+  "options_page": "options/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["icon.png", "AngryKitty.jpg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
