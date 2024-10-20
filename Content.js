@@ -3,7 +3,7 @@ const generateSTYLES = () => {
   body {
     background: #ffcccb;
     color: #ffffcc;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Gill Sans", sans-serif;
     max-height: 700px;
     overflow: hidden;
   }
@@ -15,6 +15,7 @@ const generateSTYLES = () => {
     margin: 100px auto;
   }
   ._404 {
+    font-family: "Gill Sans", sans-serif;
     font-size: 110px;
     position: relative;
     display: inline-block;
@@ -23,6 +24,7 @@ const generateSTYLES = () => {
     letter-spacing: 15px;
   }
   ._1 {
+    font-family: "Gill Sans", sans-serif;
     text-align: center;
     display: block;
     position: relative;

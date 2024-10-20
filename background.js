@@ -16,8 +16,8 @@ chrome.alarms.onAlarm.addListener((alarm) => {
           chrome.notifications.create({
             type: 'basic',
             iconUrl: 'icon.png', // Path to your notification icon
-            title: 'Study Reminder',
-            message: 'Get back to studying!',
+            title: 'Congrats',
+            message: 'You completed your study time!',
             priority: 2
           });
           timer = 0;
