@@ -3,6 +3,13 @@ chrome.alarms.create("pomodoroTimer", {
   periodInMinutes: 1 / 60,
 });
 
+chrome.action.onClicked.addListener(() => {
+  console.log("Extension icon clicked. Setting popup to popup.html.");
+  chrome.action.setPopup({ popup: "popup.html" }, () => {
+    console.log("Popup set to popup.html.");
+  });
+});
+
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === "pomodoroTimer") {
     chrome.storage.local.get(["timer", "isRunning", "timeOption"], (res) => {

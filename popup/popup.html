@@ -46,6 +46,7 @@
 
   <body>
     <h1>Study Kitty</h1>
+
     <img src="../icon.png" height="100px" />
     <div class="button-container">
     <button class="arrow-button" id="decrement">⬇️</button>
@@ -56,15 +57,17 @@
       <button id="start-timer-button">Start/Pause Timer</button>
       <button id="reset-timer-button">Reset Timer</button>
     </div>
-
-    <!-- <h1>Set Timer</h1>
-  <div id="timerDisplay"></div>
-  <div class="button-container">
-    <button class="arrow-button" id="decrement">⬇️</button>
-    <span id="timeDisplay"></span>
-    <button class="arrow-button" id="increment">⬆️</button>
-  </div> -->
-
+  <div>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button id="saveUrl">Save</button>
+    <button id="clearButton">Clear</button>
+  </div>
+  <div>
+    <h2>Current Blacklisted URLs:</h2>
+  </div>
+  <div>
+    <ul id="blacklistUrlsList"></ul> 
+  </div>
   </body>
   <script src="./popup.js"></script>
 </html>
